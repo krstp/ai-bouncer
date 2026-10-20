@@ -3,33 +3,39 @@
   "name": "AI Bouncer",
   "version": "1.8",
   "description": "Detects AI-generated text locally. No API key, no downloads.",
-
   "browser_specific_settings": {
     "gecko": {
       "id": "{a46eefcd-56f1-4755-9d9d-9dfa4093f206}",
-      "strict_min_version": "109.0"
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
     }
   },
-
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16":  "icon.png",
-      "32":  "icon.png",
-      "48":  "icon.png",
-      "128": "icon.png"
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
     }
   },
-
   "icons": {
-    "16":  "icon.png",
-    "32":  "icon.png",
-    "48":  "icon.png",
-    "128": "icon.png"
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
-
-  "permissions": ["activeTab", "scripting"],
-
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   }
