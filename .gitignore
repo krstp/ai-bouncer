@@ -1,3 +1,6 @@
 .DS_Store
 *.zip
 *.xpi
+
+# Chrome Web Store submission artifacts (local only)
+publish/
