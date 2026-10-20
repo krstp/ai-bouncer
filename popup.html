@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Bouncer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 560px; padding: 16px; font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; }
+    h3 { font-size: 18px; color: #fff; margin-bottom: 2px; }
+    .subtitle { font-size: 11px; color: #888; margin-bottom: 14px; }
+
+    .btn-row { display: flex; gap: 8px; margin-bottom: 8px; }
+
+    button {
+      flex: 1; padding: 9px; font-size: 12px; font-weight: 700;
+      border: none; border-radius: 7px; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    button:active { transform: scale(0.97); }
+
+    #grab-btn { background: #1a3a5c; color: #7ab8f5; border: 1px solid #2a5a8c; }
+    #grab-btn:hover { background: #1e4570; }
+    #grab-btn:disabled { background: #1a1a1a; color: #444; border-color: #2a2a2a; cursor: not-allowed; }
+
+    #check-btn { background: #1db954; color: #000; }
+    #check-btn:hover { background: #1ed760; }
+    #check-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+
+    #clear-btn { flex: 0 0 36px; background: #2a0a0a; color: #a04040; border: 1px solid #5a1a1a; font-size: 14px; }
+    #clear-btn:hover { background: #3a0e0e; color: #e06060; border-color: #7a2020; }
+
+    textarea {
+      width: 100%; background: #1a1a1a; border: 1px solid #2a2a2a;
+      border-radius: 8px; color: #ddd; font-size: 12px; line-height: 1.5;
+      padding: 10px; resize: vertical; outline: none; font-family: inherit;
+      min-height: 80px;
+    }
+    textarea:focus { border-color: #3a3a3a; }
+
+    #meta { font-size: 10px; color: #777; margin: 4px 0 8px; min-height: 14px; }
+    #result { margin-top: 10px; font-size: 13px; }
+
+    .verdict { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; }
+    .verdict.ai    { background: #2a0a0a; border: 1px solid #5a1a1a; }
+    .verdict.human { background: #0a2a10; border: 1px solid #1a5a20; }
+    .verdict .icon  { font-size: 22px; line-height: 1; }
+    .verdict .label { font-weight: 700; font-size: 15px; }
+    .verdict .sub   { font-size: 11px; color: #777; margin-top: 3px; line-height: 1.6; }
+
+    .bar-wrap { margin: 6px 0 4px; background: #222; border-radius: 4px; height: 5px; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+
+    /* ── Signal table ── */
+    /* Mixed signals summary line — shown between verdict and signal table */
+    .group-summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 4px 8px;
+      font-size: 11px;
+    }
+    .gs-ai    { color: #e05555; font-weight: 700; }
+    .gs-human { color: #4caf7d; font-weight: 700; }
+    .gs-sep   { color: #333; }
+    .gs-note  { color: #444; font-style: italic; margin-left: 2px; }
+
+    .signals {
+      margin-top: 10px;
+      border-top: 1px solid #1e1e1e;
+      padding-top: 6px;
+    }
+    .signal-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 58px;
+      align-items: baseline;
+      gap: 8px;
+      padding: 5px 4px;
+      border-bottom: 1px solid #161616;
+    }
+    .signal-row:last-child { border-bottom: none; }
+
+    .sig-group {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #c8a036;          /* amber — readable, matches extension warning tone */
+      white-space: nowrap;
+    }
+
+    .sig-text {
+      font-size: 12px;
+      color: #bbb;
+      line-height: 1.45;
+    }
+
+    .sig-llr {
+      font-size: 10.5px;
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.5;
+    }
+    .sig-llr.up   { color: #e05555; }   /* red   — AI evidence   */
+    .sig-llr.down { color: #4caf7d; }   /* green — Human evidence */
+    .sig-llr.flat { color: #666; }
+
+
+    .loading { color: #555; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+    .spinner {
+      width: 13px; height: 13px; border: 2px solid #2a2a2a;
+      border-top-color: #1db954; border-radius: 50%;
+      animation: spin 0.7s linear infinite; flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <h3>🚨 AI Bouncer</h3>
+  <p class="subtitle">Local detection — no API key, no data leaves your browser</p>
+
+  <div class="btn-row">
+    <button id="grab-btn">⬇ Grab Current Page / Paste</button>
+    <button id="clear-btn" title="Clear">✕</button>
+  </div>
+
+  <textarea id="text-input" rows="4" placeholder="Paste text here — or click 'Grab Page Text' to extract from current tab…"></textarea>
+  <div id="meta"></div>
+
+  <div class="btn-row">
+    <button id="check-btn">Check for AI</button>
+  </div>
+
+  <div id="result"><div class="loading">✅ Ready</div></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

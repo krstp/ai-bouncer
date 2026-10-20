@@ -1,0 +1,103 @@
+PolyForm Noncommercial License 1.0.0
+
+Copyright (c) 2026-present Krystian Paczkowski and AI Bouncer Contributors
+
+This software and associated documentation files (the "Software") are made
+available under the terms of this PolyForm Noncommercial License 1.0.0,
+subject to the additional Attribution Requirement below.
+
+---
+
+## Acceptance
+
+By using the Software, you agree to all of the terms and conditions below.
+
+## Copyright License
+
+The licensor grants you a non-exclusive, royalty-free, worldwide,
+non-sublicensable, non-transferable license to use, copy, distribute, make
+available, and prepare derivative works of the Software, in each case subject
+to the limitations and conditions below.
+
+## Noncommercial Purposes Only
+
+You may use the Software only for noncommercial purposes. Examples of
+noncommercial purposes include personal use, academic research, education,
+journalism, and advocacy. Examples of commercial purposes include, but are
+not limited to:
+
+- Selling access to the Software or a product that incorporates it
+- Offering the Software as a hosted or managed service
+- Using the Software to provide services to paying customers
+- Incorporating the Software into a commercial product or SaaS offering
+- Using the Software to generate revenue, directly or indirectly
+
+If you are uncertain whether your use qualifies as noncommercial, assume it
+does not and contact the licensor to discuss a commercial licence.
+
+## Attribution Requirement
+
+Any use, distribution, or derivative work must include the following
+attribution in a clearly visible location:
+
+    Powered by AI Bouncer — https://github.com/krstp/ai-bouncer
+    Copyright (c) 2026-present Krystian Paczkowski and AI Bouncer Contributors
+
+This attribution must appear in:
+- Any user-facing interface that incorporates the Software or its output
+- Any documentation, academic paper, blog post, or publication that
+  describes or builds upon the Software
+- The source code of any derivative work, in a comment at the top of
+  any file derived from this Software
+
+## No Sublicensing
+
+You may not sublicense the Software or grant others rights beyond what
+this licence provides. Anyone who receives a copy of the Software from
+you receives it directly under the terms of this licence.
+
+## Notices
+
+You must ensure that anyone who receives a copy of any part of the
+Software from you also receives a copy of this licence.
+
+You must not remove or obscure any copyright, attribution, or licence
+notices present in the Software.
+
+If you modify the Software, you must include a prominent notice in any
+modified copy stating that you have changed the Software and the date
+of the change.
+
+## Patents
+
+The licensor grants you a licence, under any patent claims the licensor
+can licence, to make, use, and distribute the Software for noncommercial
+purposes only, subject to the terms of this licence. This patent licence
+terminates immediately if you bring any patent claim against the licensor
+or any contributor relating to the Software.
+
+## No Warranty
+
+As far as the law allows, the Software comes as is, without any warranty
+or condition. The licensor will not be liable for any damages arising out
+of these terms or the use or nature of the Software under any kind of
+legal claim.
+
+## Termination
+
+If you use the Software in violation of these terms, your licence ends
+immediately. If the licensor notifies you of a violation and you cease
+all violation within 30 days of receiving that notice, your licence is
+reinstated. Any further violation after reinstatement terminates your
+licence permanently.
+
+## Commercial Licensing
+
+To use the Software for commercial purposes, you must obtain a separate
+commercial licence from the licensor. To enquire, open an issue at the
+project repository or contact the maintainers directly.
+
+---
+
+*Based on the PolyForm Noncommercial License 1.0.0.*
+*See https://polyformproject.org/licenses/noncommercial/1.0.0/*

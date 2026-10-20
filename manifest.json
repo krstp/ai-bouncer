@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AI Bouncer",
+  "version": "1.8",
+  "description": "Detects AI-generated text locally. No API key, no downloads.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icon.png",
+      "32":  "icon.png",
+      "48":  "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16":  "icon.png",
+    "32":  "icon.png",
+    "48":  "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
