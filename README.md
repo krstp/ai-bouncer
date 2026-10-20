@@ -18,8 +18,6 @@ current page is analysed immediately, no button presses needed.
 
 ![AI Bouncer popup showing a "Very Likely AI" verdict with a 98% AI probability and a signal breakdown](docs/screenshot.png)
 
-*The popup after analysing a page: an "AI Bouncer" title with the tagline "Local detection — no API key, no data leaves your browser", then a dark interface with a blue "Grab Current Page / Paste" button above an editable text box holding the extracted text, with a note that 58 words were extracted via density-scoring. Below the green "Check for AI" button, a red result card reads **Very Likely AI** with a probability bar at 98%, log-odds of 3.72, and a "high confidence" tag. The signal breakdown underneath lists each contributing group with a plain-language reason, a direction arrow (red for AI, green for Human) and its score: B·Vocabulary (TF-IDF kurtosis), C·Register (almost no contractions), D·Surface (bigram repetition) and E·Lexical (no AI filler phrases).*
-
 The result includes:
 - A probability score (0–100%) with a plain-language verdict
 - A confidence level (high / medium / low)
