@@ -33,6 +33,11 @@ Everything runs in your browser. No text is transmitted anywhere.
 
 ### Chrome / Chromium
 
+Install from the
+[Chrome Web Store](https://chromewebstore.google.com/detail/ai-bouncer/ecbabcfhfmchlandogmpdgjcmaeihmpj).
+
+To install manually instead:
+
 1. Download `ai-bouncer-chrome.zip` from [Releases](../../releases)
 2. Unzip it
 3. Go to `chrome://extensions`
@@ -40,6 +45,11 @@ Everything runs in your browser. No text is transmitted anywhere.
 5. Click **Load unpacked** and select the unzipped folder
 
 ### Firefox
+
+Install from
+[Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/ai-bouncer/).
+
+To install manually instead:
 
 The Firefox build uses `manifest.firefox.json` in place of `manifest.json`
 (copy it over `manifest.json` when building from source).
